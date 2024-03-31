@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        logicalFilePath="db.changelog-master.xml"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+<changeSet id="1" author="Lera">
+        <createTable tableName="Homework">
+            <column name="id" type="int">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar(50)"/>
+            <column name="description" type="varchar(200)"/>
+        </createTable>
+</changeSet>
+    <changeSet id="2" author="Lera">
+        <createTable tableName="Lesson">
+            <column name="id" type="int">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar(50)"/>
+            <column name="updatedAt" type="datetime"/>
+            <column name="homework_id" type="int">
+                <constraints foreignKeyName="homework_id" references="Homework(id)"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="3" author="Lera">
+        <createTable tableName="Schedule">
+            <column name="id" type="int">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar(50)"/>
+            <column name="updatedAt" type="datetime"/>
+            <column name="lessons" type="int"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="4" author="Lera">
+        <createTable tableName="LessonAndSchedule">
+            <column name="lesson_id" type="int">
+                <constraints nullable="false" foreignKeyName="lesson_id" references="Lesson(id)" unique="true"/>
+            </column>
+            <column name="schedule_id" type="int">
+                <constraints nullable="false" foreignKeyName="schedule_id" references="Schedule(id)" unique="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
