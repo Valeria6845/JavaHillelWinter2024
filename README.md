@@ -1,3 +1,2 @@
 # JavaHillelWinter2024
-Доброго дня! Я очікую від навчання багато нової цікавої інформації по мові Java, злагодженого навчання у групі та позитивних емоцій)
-P.S. Я з гітом  поки на "Ви", тому дуже хочеться вірити, що ви не проти купи дурних питань)
+Hello! This repository is filled with my homeworks from the Java programming course. Every directory contains files with an algorithm solving one task, and shows what I have learned during the course.
